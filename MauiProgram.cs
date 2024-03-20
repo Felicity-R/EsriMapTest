@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Esri.ArcGISRuntime.Maui;
 
 namespace EsriMapTest
 {
@@ -13,7 +14,8 @@ namespace EsriMapTest
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                })
+                .UseArcGISRuntime();
 
 #if DEBUG
     		builder.Logging.AddDebug();

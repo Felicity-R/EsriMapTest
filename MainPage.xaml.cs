@@ -1,24 +1,19 @@
-﻿namespace EsriMapTest
+﻿using Esri.ArcGISRuntime.Geometry;
+using Esri.ArcGISRuntime.Mapping;
+using Map = Esri.ArcGISRuntime.Mapping.Map;
+
+namespace EsriMapTest
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
 
         public MainPage()
         {
             InitializeComponent();
-        }
 
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            MyMapView.Map = new Map(new Basemap(new Uri("https://www.arcgis.com/home/item.html?id=ef5920f160bd4239bdeb1348de3a3156")));
+            MyMapView.Map.LoadAsync();
+            //MyMapView.LocationDisplay.IsEnabled = true;
         }
     }
 
